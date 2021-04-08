@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<!doctype html>
+<html lang="en">
+
+
+
+{% if user.is_authenticated %}
+    {% include 'Base/base.html' %}
+{% else %}
+    {% include 'Base/not_logged.html' %}
+{% endif%}
+
+{% block head %}
+
+{% load static %}
+
+
+
+<script src="{% static 'main.js' %}"></script>
+  <body>
+  <center><h1> Welcome! {{user.username}}</h1></center>
+    <div class="container mt-5">
+      {% if subscription.status == "active" %}
+        <h4>Your subscription:</h4>
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text">
+              {{ product.description }}
+            </p>
+          </div>
+        </div>
+      <a href = "/"> Checkout the reports! </a>
+      {% else %}
+        <form action = "/subscription/">
+        <center><button type="submit" class="btn btn-primary" id="submitBtn">Subscribe Now to get access to PDFs!</button></center>
+        </form>
+      {% endif %}
+    </div>
+  </body>
+</html>
+
+
+{% endblock %}

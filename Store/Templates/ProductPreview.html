@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+{% if user.is_authenticated %}
+    {% include 'Base/base.html' %}
+{% else %}
+    {% include 'Base/not_logged.html' %}
+{% endif%}
+
+{% block head %}
+{% include 'common/message.html' %}
+
+<h1> <center>Weekly Report: </center></h1>
+<form method = "get">
+    <CENTER> {{Filter.form}}
+    <button class = 'btn btn-secondary' type="submit">Submit</button>
+        </CENTER>
+</form>
+{% for p in products %}
+
+<div class="container-fluid" style="display: inline;" id = 'telegram'>
+<form action="/product/{{p.id}}/" style="display: inline; padding-bottom: 50px;">
+        {% csrf_token %}
+    <button class = 'btn btn-light' type="submit" style="height:400px"> <img  src = "{{p.preview_img.url}}" width="120" height="100" style="position: relative; bottom:100px;"/><p style="position: relative; bottom:70px;">{{p.title}}</p></button>
+</form>
+
+
+
+</div>
+{% endfor %}
+ <script>
+    setTimeout(function(){
+      if ($('#msg').length > 0) {
+        $('#msg').remove();
+      }
+    }, 3000)
+  </script>
+{% endblock %}
+
+
+
+

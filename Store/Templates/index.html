@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+
+<style>
+@media (min-width: 768px) {
+.carousel-multi-item-2 .col-md-3 {
+float: left;
+width: 25%;
+max-width: 100%; } }
+
+.carousel-multi-item-2 .card img {
+border-radius: 2px; }
+
+
+.item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 300px;
+}
+</style>
+
+
+{% if user.is_authenticated %}
+    {% include 'Base/base.html' %}
+{% else %}
+    {% include 'Base/not_logged.html' %}
+{% endif%}
+
+{% block head %}
+{% include 'common/message.html' %}
+
+<div>
+<!--   START HEADER SECTION-->
+
+     <div id="header-section">
+        <div class="background-overlay">
+            <img src="resources/svg/gradient.svg" width="100%" alt="Overlay">
+        </div>
+
+        <div id="h-me-text-box">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 me-text-p">
+                        <div class="h-left-text text-center text-lg-left">
+                           <div class="header-text mt-2">
+                               <h1>Tv and Film industry</h1>
+                           </div>
+                           <div class="sub-header mb-5">
+                               <span>leads direct to you</span>
+                           </div>
+                           <div class="desc-text mb-5">
+                               <p>Production Telegram is an online media information service</p>
+                           </div>
+
+                           <div class="sub-button my-5">
+                                    {% if profile.paid == True%}
+                                        <a href="#telegrams">You are subscribed! Checkout Weekly reports</a>
+                                    {% else %}
+                                        <a href="/subscription/">Subscribe now</a>
+                                    {% endif %}
+                           </div>
+                        </div>
+                    </div>
+                   <div class="col-lg-5 mb-0">
+                        <div class="right-img ml-0 mb-0"> <img class="my-3" src="resources/image/header-right-image1.png" alt="Shamim"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<br>
+<br>
+    <!--BRAND-IMAGE-SECTION -->
+
+
+        <div id="brand-img-section" style="margin-top: 100px;">
+        <div class="custom-container">
+            <div class="row">
+                <div class="col order-3">
+                    <div class="brand-img-box">
+                        <a href="#">
+                            <img class="d-block" src="resources/image/brand-img.png" alt="Brand-Image">
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+      <!--#benefits -SECTION-->
+    <div id="benefits" class="mt-5">
+        <div class="bg-bft">
+        <div class="container">
+            <div class="row mb-2">
+                <div class="col text-center">
+                    <h1>Benefits</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="b-icon-box m-2 text-center">
+                        <div class="b-icon mb-3">
+                            <img src="resources/image/ba1.png" alt="">
+                        </div>
+                        <span>Increase your earnings</span>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="b-icon-box m-2 text-center">
+                        <div class="b-icon mb-3">
+                            <img src="resources/image/ba2.png" alt="">
+                        </div>
+                        <span>Save valuable time</span>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="b-icon-box m-2 text-center">
+                        <div class="b-icon mb-3">
+                            <img src="resources/image/ba3.png" alt="">
+                        </div>
+                        <span>Never miss an opportunity</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="b-icon-box m-2 text-center">
+                        <div class="b-icon mb-3">
+                            <img src="resources/image/ba4.png" alt="">
+                        </div>
+                        <span>Connect with high profile
+                            production companies</span>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="b-icon-box m-2 text-center">
+                        <div class="b-icon mb-3">
+                            <img src="resources/image/ba5.png" alt="">
+                        </div>
+                        <span>Get more clients</span>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="b-icon-box m-2 text-center">
+                        <div class="b-icon mb-3">
+                            <img src="resources/image/ba6.png" alt="">
+                        </div>
+                        <span>Be the first to know </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="b-icon-box m-2 text-center">
+                        <div class="b-icon mb-3">
+                            <img src="resources/image/ba7.png" alt="">
+                        </div>
+                        <span>Get new leads</span>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="b-icon-box m-2 text-center">
+                        <div class="b-icon mb-3">
+                            <img src="resources/image/ba8.png" alt="">
+                        </div>
+                        <span>Stay current</span>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="b-icon-box m-2 text-center">
+                        <div class="b-icon mb-3">
+                            <img src="resources/image/ba9.png" alt="">
+                        </div>
+                        <span>Increase your exposure</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!--whats-Offer-SECTION-->
+    <div id="offer" class="my-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="whats-img-box">
+                        <img src="resources/image/whatsoffer.png" alt="Offer">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="offer-text-box mt-4">
+                       <div class="offer-heading ml-5">
+                           <h1>What’s on offer</h1>
+                       </div>
+                       <div class="offer-list mt-4">
+                           <ul>
+                               <li><a href="#">Bringing you the best opportunities in the industry  </a></li>
+                               <li><a href="#">Give yourself an edge  </a></li>
+                               <li><a href="#">Real time up to the minute updates</a></li>
+                               <li><a href="#">Save on average over 4hrs a day</a></li>
+                               <li><a href="#">The only service to provide you with real time updates</a></li>
+                               <li><a href="#">From only $1.15 a day </a></li>
+                               <li><a href="#">Here to help you land that next contract</a></li>
+                               <li><a href="#">Time sensitive offer </a></li>
+
+
+                           </ul>
+                       </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- REVIEW SECTION -->
+<div id="reviews" class="my-3 py-5">
+
+    <div style = "background-color: white; margin-bottom: 5%;">
+        <h1>Latest movies</h1>
+        <br>
+    <div id="movies" class="carousel slide carousel-multi-item carousel-multi-item-2" data-ride="carousel">
+      <!--/.Controls-->
+      <!--Slides-->
+      <div class="carousel-inner" role="listbox">
+         <!--First slide-->
+         {% for movie in movies%}
+         {% if forloop.counter < 5%}
+         <div class="carousel-item active">
+            <div class="col-md-3 mb-3">
+               <div class="card">
+                  <img class="img-fluid" src="{{movie.display_img.url}}"
+                     alt="Card image cap">
+                   <p>{{movie.title}}</p>
+               </div>
+            </div>
+            {% else %}
+            {% endif %}
+            {% endfor %}
+            <!--/.Second slide-->
+            <!--/.Third slide-->
+         </div>
+      </div>
+    </div>
+      <!--/.Slides-->
+    </div>
+   </div>
+   <!--Carousel Wrapper-->
+   <div style = "background-color: white;">
+       <h1>Behind the scenes</h1>
+       <br>
+   <div id="multi-item-example" class="carousel slide carousel-multi-item carousel-multi-item-2" data-ride="carousel">
+      <!--/.Controls-->
+      <!--Slides-->
+      <div class="carousel-inner" role="listbox">
+         <!--First slide-->
+         {% for scene in scenes%}
+         {% if forloop.counter < 5%}
+         <div class="carousel-item active">
+            <div class="col-md-3 mb-3">
+               <div class="card">
+                  <img class="img-fluid" src="{{scene.display_img.url}}"
+                     alt="Card image cap">
+                   <p>{{scene.title}}</p>
+               </div>
+
+            </div>
+            {% else %}
+            {% endif %}
+            {% endfor %}
+            <!--/.Second slide-->
+            <!--/.Third slide-->
+         </div>
+      </div>
+   </div>
+   </div>
+</div>
+      <!--/.Slides-->
+   </div>
+
+
+
+
+
+</div>
+<!--/.Carousel Wrapper-->
+</div>
+</div>
+</div>
+
+<div id="telegrams" class="my-5">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col mt-5">
+                <div class="tele-title text-center">
+                    <h1 class="mb-3">
+                        Weekly Telegrams
+                    </h1>
+                    <span>New Telegram</span>
+                </div>
+            </div>
+        </div>
+        {% for p in products %}
+        <div class="row mb-4">
+            <div class="col-lg-2">
+                <div class="t-icon-box m-md-auto mb-md-5 mb-lg-2">
+                    <img src="resources/image/ba7.png" alt="document">
+                </div>
+            </div>
+            <div class="col-lg-8 custom-col">
+                <div class="t-text-box pb-4">
+                    <div class="row">
+                        <div class="col-6">
+                            <h3>{{p.title}}</h3>
+                        </div>
+                        <div class="col-6">
+                            <h3 class="text-right">{{p.date}}</h3>
+                        </div>
+                    </div>
+                    <p> {{p.description}} </p>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="t-download-button text-center py-5">
+                    {% if profile.paid == True%}
+                    <a href = "{{p.pdf.url}}" download="{{p.pdf.url}}"> download </a>
+                    {% else %}
+                    <a href = "/subscription/"> download </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <form action="/product/">
+            <button class = "btn btn-primary">More reports</button>
+        </form>
+    </div>
+</div>
+<!-- About us section -->
+<div id="about-us" class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="about-text-box">
+                    <div class="a-heading mb-5 text-lg-left text-md-center">
+                        <h1>ABOUT US</h1>
+                    </div>
+
+                    <div class="about-text text-justify">
+                        <p>Production Telegram is an online media information service that specialises in the sourcing of high-quality film industry leads, through it’s extensive network of researcher and industry agents. With a focus on films that are scheduled to go into preproduction; We support film industry professional that are aiming to increase their awareness of current opportunities within the film industry though our weekly telegram. </p>
+                        <p>Production Telegram brings you one step closer to realising and developing your goals within the television and film picture industry by ensuring that you always have access to the opportunities that matter.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="about-img-box ml-auto mr-auto">
+                    <img class="ml-auto mr-auto d-block" src="resources/image/aboutus.png" alt="ABOUT US">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- footer section -->
+<footer id="footer" class="py-5">
+ <div class="container">
+     <div class="row">
+       <div class="col">
+           <div class="f-logo-img">
+               <img src="resources/favicon/logo.png" alt="LOGO">
+           </div>
+       </div>
+     </div>
+     <div class="row pt-5">
+         <div class="col-md-8">
+             <div class="footer-menu text-lg-left text-sm-center mb-sm-5">
+
+                    <a class="d-inline" href="#index.html">Home </a>
+                    <a class="d-inline" href="#benefits">Benefits </a>
+                     <a class="d-inline" href="#offer">What’s on offer </a>
+                    <a class="d-inline" href="#reviews">Reviews</a>
+                    <a class="d-inline" href="#about-us">About Us </a>
+
+             </div>
+         </div>
+         <div class="col-md-4">
+            <div class="social-menu text-right text-lg-right text-sm-center">
+
+                   <a class="d-inline" href="#"><i class="fab fa-facebook-f"></i></a>
+                   <a class="d-inline" href="#"><i class="fab fa-instagram"></i> </a>
+                    <a class="d-inline" href="#"><i class="fab fa-twitter"></i> </a>
+                   <a class="d-inline" href="#"><i class="fab fa-whatsapp"></i> </a>
+
+
+            </div>
+        </div>
+     </div>
+     <div class="row">
+         <div class="col">
+             <div class="mail-text py-5 text-lg-left text-sm-center">
+                <p class="d-inline">
+                    <i class="fas fa-phone-alt mr-1"></i>
+                    (0011)-7888-1258
+                 </p>
+                 <p class="d-inline">
+                    <i class="far fa-envelope mr-1"></i>
+                    Abc@123@gmail.com
+                 </p>
+
+             </div>
+
+         </div>
+     </div>
+     <div class="row py-3">
+         <div class="col-6">
+             <div class="copyright-text">
+                 <P>Copyright@2020</P>
+             </div>
+
+         </div>
+         <div class="col-6">
+            <div class="privacy-text text-right">
+                <a href="#" class="text-white">Privacy Policy</a>
+            </div>
+         </div>
+     </div>
+ </div>
+</footer>
+
+
+
+<!--  js file-->
+
+</body>
+
+
+</html>
+
+ <script>
+    setTimeout(function(){
+      if ($('#msg').length > 0) {
+        $('#msg').remove();
+      }
+    }, 3000)
+  </script>
+{% endblock %}
+

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+
+{% if user.is_authenticated %}
+   {% include 'Base/base.html' %}
+{% else %}
+   {% include 'Base/not_logged.html' %}
+{% endif%}
+
+
+{% block head %}
+
+<div id="telegrams" class="my-5">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col mt-5">
+                <div class="tele-title text-center">
+                    <h1 class="mb-3">
+                        Weekly Telegrams
+                    </h1>
+                    <span>New Telegram</span>
+
+                    <form method = "get">
+                       {{Filter.form}}
+                            <button class = 'btn btn-secondary' type="submit">Search exact title</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% for p in products %}
+        <div class="row mb-4">
+            <div class="col-lg-2">
+                <div class="t-icon-box m-md-auto mb-md-5 mb-lg-2">
+                    <img src="{{p.preview_img.url}}" alt="document">
+                </div>
+            </div>
+            <div class="col-lg-8 custom-col">
+                <div class="t-text-box pb-4">
+                    <div class="row">
+                        <div class="col-6">
+                            <h3>{{p.title}}</h3>
+                        </div>
+                        <div class="col-6">
+                            <h3 class="text-right">{{p.date}}</h3>
+                        </div>
+                    </div>
+                    <p> {{p.description}} </p>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="t-download-button text-center py-5">
+                    {% if profile.paid == True%}
+                    <a href = "{{p.pdf.url}}" download="{{p.pdf.url}}"> download </a>
+                    {% else %}
+                    <a href = "/subscription/"> download </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+
+
+{% endblock %}
